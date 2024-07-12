@@ -30,12 +30,12 @@ class Graph{
 void BfsTopoSort( unordered_map<int,bool>&visited,int n){
  queue<int>q;
  unordered_map<int,int>indegree;
- for(auto i : adjList){
-  int src=i.first;
-  for(auto nbr : i.second){
-    indegree[nbr]++;
-  }
- }
+  
+	 for(auto i = 0; i < n; i++) {
+	    for(auto j: adjList[i])
+	        indegree[j]++;
+	 }
+	    
  for(int i=1;i<n;i++){
   if(indegree[i]==0){
     q.push(i);
